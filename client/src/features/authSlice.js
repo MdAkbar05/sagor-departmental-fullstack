@@ -52,7 +52,7 @@ export const handleRegister = createAsyncThunk(
         formData,
         { withCredentials: true }
       );
-      console.log(response.data);
+
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -86,7 +86,7 @@ export const handleUpdate = createAsyncThunk(
           "Content-Type": "application/json",
         },
       });
-      console.log(response.data.payload.updatedUser);
+
       return response.data.payload.updatedUser;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -108,7 +108,7 @@ export const handleUpdatePass = createAsyncThunk(
           },
         }
       );
-      console.log(response.data);
+
       return response.data;
     } catch (error) {
       console.error(error);
@@ -133,7 +133,7 @@ const authSlice = createSlice({
     builder.addCase(handleLogin.fulfilled, (state, action) => {
       state.isLoading = false;
       state.authUser = action.payload;
-      console.log(action.payload);
+
       // Save user state to localStorage
       action.payload &&
         localStorage.setItem(

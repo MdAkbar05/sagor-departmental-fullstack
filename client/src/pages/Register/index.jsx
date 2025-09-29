@@ -93,7 +93,7 @@ const Register = () => {
             value={formData.password}
             onChange={handleChange}
             className="peer mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
-            placeholder=" "
+            placeholder="********"
             required
           />
           <label className="absolute top-0 left-2 text-gray-600 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3.5 peer-placeholder-shown:left-3 peer-focus:top-0 peer-focus:left-2 peer-focus:text-xs">

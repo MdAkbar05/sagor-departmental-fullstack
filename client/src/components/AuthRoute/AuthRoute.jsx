@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
+import { adminEmail } from "../../secret";
 
 const AuthRoute = ({ children }) => {
   const location = useLocation();
@@ -14,8 +15,7 @@ const AuthRoute = ({ children }) => {
   const user = getUser();
 
   // Define the admin email
-  const adminEmail = "samratakbar667466@gmail.com"; // Change to your admin email
-
+  const adminEmail = adminEmail;
   // Check if either user from Google or LocalStorage has the admin email
   const isAdmin = user?.email && user.email === adminEmail;
 

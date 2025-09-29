@@ -10,3 +10,5 @@ export const firebaseCon = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
+
+export const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || "";
