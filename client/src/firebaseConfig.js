@@ -5,7 +5,7 @@ import {
   getAuth,
   GoogleAuthProvider,
 } from "firebase/auth";
-import { firebaseConfig, firebaseConfig, firebaseConfig } from "./secret";
+import { firebaseConfig } from "./secret";
 
 const firebaseConfig = {
   apiKey: firebaseConfig.apiKey || "",
