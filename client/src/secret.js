@@ -1,7 +1,7 @@
 export const backendURL =
   import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
 
-export const firebaseConfig = {
+export const firebaseCon = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
