@@ -1,0 +1,63 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body {
+  background-color: #fffbe6;
+}
+.logo path {
+  fill: white;
+}
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* // local font use  */
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/PTSerif-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/PTSerif-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+.spinnerCircle {
+  @apply border-gray-300 size-10 animate-spin rounded-full border-8 border-t-blue-600;
+}
+
+.slick-dots {
+  margin-bottom: -200px;
+}
+
+.slick-arrow {
+  background-color: #2ea100 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.slick-prev {
+  left: 25px !important;
+  transform: scale(1.5) !important;
+  z-index: 1;
+}
+.slick-next {
+  right: 10px !important;
+  transform: scale(1.5) !important;
+  z-index: 1;
+}
+.bg-hero {
+  background-image: url("/bg-hero.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

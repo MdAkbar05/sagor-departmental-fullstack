@@ -1,0 +1,5 @@
+# Ignore a subfolder named 'build' inside 'client'
+client/build/
+
+# Ignore a subfolder named 'logs' inside 'server'
+server/logs/
