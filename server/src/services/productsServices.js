@@ -8,13 +8,13 @@ const Review = require("../models/reviewModel");
 const createProduct = async (productData) => {
   const { name, description, quantity, price, shipping, category, image } =
     productData;
-  console.log(productData);
+
   const productExists = await Products.exists({ name: name });
 
   if (productExists) {
     throw createError(409, "Product with this name already exists.");
   }
-  console.log(productExists);
+
   // Create new product
   const product = await Products.create({
     name,

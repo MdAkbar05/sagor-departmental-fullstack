@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const xssClean = require("xss-clean");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-// const ratelimit = require("express-rate-limit");
+const ratelimit = require("express-rate-limit");
 const userRouter = require("./routes/user.router");
 const seedRouter = require("./routes/seedRouter");
 const createError = require("http-errors");
@@ -32,6 +32,13 @@ app.use((req, res, next) => {
   next();
 });
 app.use(cookieParser());
+// use rate limiter
+const rateLimiter = ratelimit({
+  windowMs: 1 * 60 * 1000, // 1 minitue
+  max: 10,
+  message: "Too many request from this IP ! Please try again later ",
+});
+app.use(rateLimiter);
 
 app.use("/api/users/", userRouter);
 app.use("/api/auth/", authRouter);
@@ -59,11 +66,5 @@ app.use((err, req, res, next) => {
     message: err.message,
   });
 });
-
-// const rateLimiter = ratelimit({
-//   windowMs: 1 * 60 * 1000, // 1 minitue
-//   max: 5,
-//   message: "Too many request from this IP ! Please try again later ",
-// });
 
 module.exports = app;

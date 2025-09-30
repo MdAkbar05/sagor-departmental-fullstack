@@ -6,9 +6,7 @@ const validateProduct = [
     .notEmpty()
     .withMessage("Product name is required")
     .isLength({ min: 2, max: 150 })
-    .withMessage("Product name should be between 2 and 150 characters")
-    .matches(/^[A-Za-z\s]+$/)
-    .withMessage("Product name should only contain alphabets"),
+    .withMessage("Product name should be between 2 and 150 characters"),
   body("description")
     .trim()
     .notEmpty()
