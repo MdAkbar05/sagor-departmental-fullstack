@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { backendURL } from "../../secret";
 
 const ForgetPassword = () => {
   const [email, setEmail] = useState("");
@@ -22,7 +23,7 @@ const ForgetPassword = () => {
       data.append("email", email);
       try {
         const res = await axios.post(
-          "http://localhost:3000/api/users/forget-password/",
+          `${backendURL}/api/users/forget-password/`,
           data,
           {
             headers: {
@@ -30,12 +31,14 @@ const ForgetPassword = () => {
             },
           }
         );
-        if (res) {
+        if (res.status === 200 || res.data.statusCode === 200) {
           setToken(res.data.payload);
           alert(res.data.message);
           setIsEmailSubmitted(true);
 
           console.log(token, password);
+        } else {
+          alert(res?.data?.message || res?.message);
         }
       } catch (error) {
         alert("Error with send token in your email accounts" + error.message);
@@ -49,7 +52,7 @@ const ForgetPassword = () => {
       console.log(data);
       try {
         const res = await axios.put(
-          "http://localhost:3000/api/users/reset-password/",
+          `${backendURL}/api/users/reset-password/`,
           data,
           {
             headers: {

@@ -15,7 +15,7 @@ export const getUsers = createAsyncThunk("users/getUsers", async () => {
   }
 });
 
-// Fetch all users
+// Fetch single user
 export const getUser = createAsyncThunk("users/getUser", async (id) => {
   try {
     const response = await axios.get(`${baseUrl}/api/users/${id}`, {
