@@ -54,11 +54,24 @@ const handleLogin = async (req, res, next) => {
       sameSite: "none",
     });
 
+    const userWithoutPassword = {
+      _id: users._id,
+      name: users.name,
+      email: users.email,
+      image: users.image,
+      address: users.address,
+      phone: users.phone,
+      isBanned: users.isBanned,
+      isAdmin: users.isAdmin,
+      createdAt: users.createdAt,
+      updatedAt: users.updatedAt,
+    };
+
     // Success response
     return successResponse(res, {
       statusCode: 200,
       message: "User loggedin successfully",
-      payload: { users },
+      payload: { users: userWithoutPassword },
     });
   } catch (error) {
     next(error);

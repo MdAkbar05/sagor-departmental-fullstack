@@ -15,9 +15,9 @@ const AuthRoute = ({ children }) => {
   const user = getUser();
 
   // Define the admin email
-  const adminEmail = adminEmail;
+  const admin = adminEmail;
   // Check if either user from Google or LocalStorage has the admin email
-  const isAdmin = user?.email && user.email === adminEmail;
+  const isAdmin = user?.email && user.email === admin;
 
   useEffect(() => {
     if (!isAdmin) {
