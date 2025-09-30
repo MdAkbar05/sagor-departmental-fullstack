@@ -147,5 +147,4 @@ module.exports = {
   handleLogout,
   handleRefreshToken,
   handleProtected,
-  handleGoogleLogin,
 };

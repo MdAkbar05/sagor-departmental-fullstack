@@ -116,31 +116,45 @@ const ProductDetails = () => {
 
             {/* Display Reviews */}
             {currentProduct.reviews && currentProduct.reviews.length > 0 ? (
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {currentProduct.reviews.map((review, index) => (
                   <div
                     key={index}
-                    className="border-b space-y-2 flex gap-8 justify-between  items-center p-6 bg-secondary rounded-xl shadow-xl"
+                    className="border-b pb-6 flex flex-col gap-3"
                   >
-                    <div className="flex flex-col items-center gap-4">
-                      <span className="size-10 rounded-full font-semibold text-lg bg-primary flexCenter text-white">
+                    {/* Header: Avatar, Name, Rating */}
+                    <div className="flex items-center gap-3">
+                      {/* Avatar */}
+                      <div className="size-10 rounded-full bg-primary text-white flex items-center justify-center font-semibold">
                         {review.user.name?.slice(0, 1)}
-                      </span>
-                      <p className="">{review.user.name}</p>
-                    </div>
-                    <p className="text-black py-4">{review.comment}</p>
-                    <div className="flex items-center gap-4 flex-col">
-                      <span>
-                        {new Date(review.createdAt).toLocaleDateString()}
-                      </span>
-                      <span className="flex">
-                        {Array.from({ length: review.rating }, (_, i) => (
-                          <span key={i} className="text-lg">
-                            <MdStar size={24} color="white" />
+                      </div>
+
+                      {/* Name + Rating */}
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-medium text-gray-800">
+                            {review.user.name}
                           </span>
-                        ))}
-                      </span>
+                          <div className="flex">
+                            {Array.from({ length: review.rating }, (_, i) => (
+                              <MdStar
+                                key={i}
+                                size={18}
+                                className="text-yellow-400"
+                              />
+                            ))}
+                          </div>
+                        </div>
+                        <span className="text-xs text-gray-500">
+                          {new Date(review.createdAt).toLocaleDateString()}
+                        </span>
+                      </div>
                     </div>
+
+                    {/* Review Comment */}
+                    <p className="text-sm text-gray-700 leading-relaxed pl-12">
+                      {review.comment}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -197,7 +211,7 @@ const ProductDetails = () => {
                       setReview({ ...review, comment: e.target.value })
                     }
                     rows="4"
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm outline-none focus:border-primary sm:text-sm p-2"
                   ></textarea>
                 </div>
 
