@@ -8,13 +8,7 @@ const productsSchema = new Schema(
       trim: true,
       minlength: [2, "Product name should have at least 2 characters"],
       maxlength: [150, "Product name can have up to 150 characters"],
-      validate: {
-        validator: function (v) {
-          return /^[A-Za-z\s]+$/.test(v); // Allow only alphabets and spaces
-        },
-        message: (props) =>
-          `${props.value} is not a valid name. Only alphabets are allowed.`,
-      },
+      unique: true,
     },
 
     slug: {
